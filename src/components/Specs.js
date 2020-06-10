@@ -12,7 +12,7 @@ export class Specs extends Component {
                <option value="4">4</option>
             </select> <br/>
             <label>Specified Tolorance</label> <br/>
-            <input type="text" onChange={this.props.tolChanged} />
+            <input type="text" id={this.props.id} onChange={this.props.tolChanged} />
          </div>
       )
    }
