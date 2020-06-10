@@ -134,11 +134,19 @@ class  App extends Component {
   // Calculates the new shim thickness
   //newShimThickness = (currentGap - tolorance) + ShimThickness;
   calculate = () => {
+    const exTolorance = this.state.specs[0].tolorance;
+    const inTolorance = this.state.specs[1].tolorance;
     // exhaust
-
-
+    this.setState({ exValves: this.state.exValves.map(valves => {
+      valves.newThickness = ((valves.currentGap - exTolorance) + valves.ShimThickness)
+      return valves;
+    })})
+    
     // intake
-   
+    this.setState({ inValves: this.state.inValves.map(valves => {
+      valves.newThickness = ((valves.currentGap - inTolorance) + valves.ShimThickness).toFixed(3);
+      return valves;
+    })})
   }
 
   render() {
